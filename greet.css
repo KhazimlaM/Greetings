@@ -1,0 +1,40 @@
+.section {
+	padding: 50px;
+	margin-left: 400px;
+	margin-right: 400px;
+	border-radius: 10px;
+	text-align: center;
+}
+.greetings {
+	border: 20em;
+	height: 50px;
+	background-color: white;
+	margin-left: 250px;
+	margin-right: 250px;
+	align-items: center;
+}
+.display {
+	height: 50px;
+	background-color: white;
+	margin-left: 200px;
+	margin-right: 200px;
+}
+.inputTxt {
+	border: 40px;
+}
+
+ @media (max-width: 680px) {
+	 .section{
+		margin: 30px; 
+	 }
+	 .display{
+		margin-left: 70px;
+	 }
+	 .greetings{
+		 margin-left: 20%;	
+	 }
+	 .span {
+		align-items: center;
+	 }
+} 
+
