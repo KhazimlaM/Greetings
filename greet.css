@@ -8,6 +8,7 @@
 .greetings {
 	border: 20em;
 	height: 50px;
+	line-height: 50px;
 	background-color: white;
 	margin-left: 250px;
 	margin-right: 250px;

@@ -13,17 +13,23 @@ let counterElement = document.querySelector(".counter")
 
 // create an instance for greetMe
 
-
+  
 //add an event listener for when the 'Click Me' button is pressed
-greetButton.addEventListener('click', () => {
+greetButton.addEventListener('click', function() {
+   
+   
+  
   let language = document.querySelector('.radio-button:checked');
   let result = language.value;
   var storeNames = [];
   let counter = 0;
+   counter += 1;
+   counterElement.innerHTML = counter;
+  
 
   var storage = nameElement.value;
-  if(storage !== ""){
-  }
+  if(storage !== "")
+  
   
   if(result !== null){
     if(result === "xhosa" ){
@@ -36,14 +42,13 @@ greetButton.addEventListener('click', () => {
       displayElement.innerHTML = "Nda, " + storage;
       
     }
+   
+
+   
     
     storeNames.push(storage);
     console.log(storeNames);
 }
-
-
-
-
 
 
 });
