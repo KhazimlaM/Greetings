@@ -22,7 +22,7 @@ greetButton.addEventListener('click', function() {
   let language = document.querySelector('.radio-button:checked');
   let result = language.value;
   var storeNames = [];
-  let counter = 0;
+  var counter = 0;
    counter += 1;
    counterElement.innerHTML = counter;
   
