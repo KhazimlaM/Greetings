@@ -3,18 +3,21 @@ let nameElement = document.querySelector(".inputTxt")
 let greetButton = document.querySelector(".last-button")
 let displayElement = document.querySelector(".display")
 let counterElement = document.querySelector(".counter")
+let errorElement = document.querySelector(".errors")
 
 
 
-let greetings = Greetings();
 // Get the values stored in the local storage 
 
-let getItem = {}
+let getItemNames = {}
 if (localStorage.getItem('nameEntered')) {
-  getItem = JSON.parse(localStorage.getItem('nameEntered'));
+  getItemNames = JSON.parse(localStorage.getItem('nameEntered'));
 }
-console.log(getItem)
 
+
+let greetings = Greetings(getItemNames);
+
+counterElement.innerHTML = greetings.countNames();
 
 greetButton.addEventListener('click', function () {
 
@@ -22,19 +25,26 @@ greetButton.addEventListener('click', function () {
   let languageElem = document.querySelector('.radio-button:checked');
   // alert(languageElem.value);
 
-  greetings.setNames(greetedName)
   // console.log(greetings.greet(greetedName));
+
   if (languageElem) {
-    let message = greetings.greet(greetedName, languageElem.value)
-    // console.log(message);
-    displayElement.innerHTML = message;
+    if(greetedName) {
+      greetings.setNames(greetedName)
+      let message = greetings.greet(greetedName, languageElem.value)
+      console.log(message);
+      displayElement.innerHTML = message;
+      counterElement.innerHTML = greetings.countNames();
+    }
+ 
+    errorElement.innerHTML = greetings.errorHandling();
+
   }
 
   //store names into local storage , make sure that I convert my object that stores names into an string
 
-  localStorage.setItem('nameEntered', JSON.stringify(nameElement.value));
+  localStorage.setItem('nameEntered', JSON.stringify(greetings.namesReturned()));
 
-  
+
 
 
 

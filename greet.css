@@ -20,9 +20,17 @@
 	margin-left: 200px;
 	margin-right: 200px;
 }
+.errors {
+	height: 50px;
+	background-color: white;
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
 .inputTxt {
 	border: 40px;
 }
+
 
  @media (max-width: 680px) {
 	 .section{

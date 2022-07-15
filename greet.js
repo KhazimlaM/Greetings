@@ -1,8 +1,8 @@
 // Create a function to set names of users and count them
 
-function Greetings() {
+function Greetings(getItemNames) {
 
-    var storedNames = {}
+    var storedNames = getItemNames || {}
 
 
     function setNames(namez) {
@@ -37,7 +37,7 @@ function Greetings() {
     // Get the length of values in the object but first convert it into a list/array
     function countNames() {
         let counter = Object.keys(storedNames);
-        return counter;
+        return counter.length;
     }
 
     // Create a function that returns the stored names
@@ -46,22 +46,29 @@ function Greetings() {
     }
 
     // handling erros when theres no names, nothing selected and when names contain numeric values
-    function errorHandling(names, languages) {
-
-        if (names === null) {
+    function errorHandling(names, languages){
+        
+        let invalidChar = "";
+        if (names == undefined) {
+        if (names  ===  "") {
             return "Please enter your name ";
         }
-        if (languages === null) {
+        
+        else if (languages === null) {
             return "Please select a language";
         }
-        if (names && languages === null) {
+        else if (names && languages === null) {
             return "Please enter a name and select a language";
         }
-        if (names && languages === Number) {
-            return "Please do not enter any numeric values";
-        }
+
+        return invalidChar;
+
+        // if (names && languages === Number) {
+        //     return "Please do not enter any numeric values";
+        // }
 
     }
+}
 
 
 
