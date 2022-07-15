@@ -13,9 +13,8 @@ let getItem = {}
 if(localStorage.getItem('nameEntered')){
   getItem = localStorage.getItem('nameEntered');
 }
+console.log(getItem)
 
-
-console.log(getItem);
 
 greetButton.addEventListener('click', function() {
   
@@ -30,7 +29,8 @@ greetButton.addEventListener('click', function() {
   // console.log(message);
   displayElement.innerHTML = message;
 }
-//store names into local storage , make sure that I convert my object that stores names into an string
+
+  //store names into local storage , make sure that I convert my object that stores names into an string
 
     localStorage.setItem('nameEntered', JSON.stringify(nameElement.value));
     
