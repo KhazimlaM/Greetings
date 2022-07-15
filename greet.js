@@ -49,7 +49,7 @@ function Greetings(getItemNames) {
     function errorHandling(names, languages){
         
         let invalidChar = "";
-        if (names == undefined) {
+        if (names === undefined) {
         if (names  ===  "") {
             return "Please enter your name ";
         }
