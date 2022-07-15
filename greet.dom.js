@@ -1,45 +1,51 @@
-// get a reference to all the greet elements
 
-// let english = document.querySelector(".radio-button2")
-// let venda = document.querySelector(".radio-button3")
 let nameElement = document.querySelector(".inputTxt")
 let greetButton = document.querySelector(".last-button")
-let theName = document.querySelector(".names")
 let displayElement = document.querySelector(".display")
 let counterElement = document.querySelector(".counter")
-
-// create a variables that will keep track of all the settings
-
-
-// create an instance for greetMe
+let errorElement = document.querySelector(".errors")
 
 
-//add an event listener for when the 'Click Me' button is pressed
-greetButton.addEventListener('click', () => {
-  let language = document.querySelector('.radio-button:checked');
-  let result = language.value;
-  var storeNames = [];
-  let counter = 0;
 
-  var storage = nameElement.value;
-  if(storage !== ""){
-  }
-  
-  if(result !== null){
-    if(result === "xhosa" ){
-      displayElement.innerHTML = "Molo, " + storage;
-    }
-    else if(result === "english"){
-      displayElement.innerHTML = "Hello, " + storage;
-    }
-    else if(result === "venda"){
-      displayElement.innerHTML = "Nda, " + storage;
-      
-    }
-    
-    storeNames.push(storage);
-    console.log(storeNames);
+// Get the values stored in the local storage 
+
+let getItemNames = {}
+if (localStorage.getItem('nameEntered')) {
+  getItemNames = JSON.parse(localStorage.getItem('nameEntered'));
 }
+
+
+let greetings = Greetings(getItemNames);
+
+counterElement.innerHTML = greetings.countNames();
+
+greetButton.addEventListener('click', function () {
+
+  let greetedName = nameElement.value;
+  let languageElem = document.querySelector('.radio-button:checked');
+  // alert(languageElem.value);
+
+  // console.log(greetings.greet(greetedName));
+
+  if (languageElem) {
+    if(greetedName) {
+      greetings.setNames(greetedName)
+      let message = greetings.greet(greetedName, languageElem.value)
+      console.log(message);
+      displayElement.innerHTML = message;
+      counterElement.innerHTML = greetings.countNames();
+    }
+ 
+    errorElement.innerHTML = greetings.errorHandling();
+
+  }
+
+  //store names into local storage , make sure that I convert my object that stores names into an string
+
+  localStorage.setItem('nameEntered', JSON.stringify(greetings.namesReturned()));
+
+
+
 
 
 
@@ -47,6 +53,17 @@ greetButton.addEventListener('click', () => {
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
