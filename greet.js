@@ -49,7 +49,7 @@ function Greetings() {
     function errorHandling(names, languages) {
 
         if (names === null) {
-            return "Please enter a name";
+            return "Please enter your name ";
         }
         if (languages === null) {
             return "Please select a language";
@@ -58,7 +58,7 @@ function Greetings() {
             return "Please enter a name and select a language";
         }
         if (names && languages === Number) {
-            return "Please do not enter numeric values";
+            return "Please do not enter any numeric values";
         }
 
     }
