@@ -1,15 +1,19 @@
 // Create a function to set names of users and count them
 
-function Greetings(getItemNames) {
+function Greetings(getItemNames) 
+{
 
     var storedNames = getItemNames || {}
 
 
-    function setNames(namez) {
-        if (storedNames[namez] === undefined) {
+    function setNames(namez)
+    {
+        if (storedNames[namez] === undefined) 
+        {
             storedNames[namez] = 1;
         }
-        else {
+        else 
+        {
             storedNames[namez]++;
         }
 
@@ -17,10 +21,13 @@ function Greetings(getItemNames) {
 
     // Create a function to greet the name with the selected language
 
-    function greet(name, language) {
+    function greet(name, language) 
+    {
         let greetMessage = "";
-        if (language !== null) {
-            if (language === "xhosa") {
+        if (language !== null) 
+        {
+            if (language === "xhosa") 
+            {
                 return "Molo, " + name;
             }
             else if (language === "english") {
@@ -41,45 +48,44 @@ function Greetings(getItemNames) {
     }
 
     // Create a function that returns the stored names
-    function namesReturned() {
+    function namesReturned()
+    {
         return storedNames
     }
 
     // handling erros when theres no names, nothing selected and when names contain numeric values
-    function errorHandling(names, languages){
-        
-        let invalidChar = "";
-        if (names === undefined) {
-        if (names  ===  "") {
-            return "Please enter your name ";
-        }
-        
-        else if (languages === null) {
+    function errorHandling(names, languages)
+    {
+        // let invalidChar = "";
+
+         if (names  ==  "") 
+            {
+                return "Please enter your name";
+            }
+      
+        if (languages == null) 
+        {
             return "Please select a language";
         }
-        else if (names && languages === null) {
+        if (names == "" && languages == null) 
+        {
             return "Please enter a name and select a language";
         }
 
-        return invalidChar;
+        // return invalidChar;
 
-        // if (names && languages === Number) {
-        //     return "Please do not enter any numeric values";
-        // }
+        if (names && languages === Number) {
+            return "Please do not enter any numeric values";
+        }
 
     }
-}
-
-
-
-
 
     return {
         setNames,
         countNames,
         greet,
         namesReturned,
-        errorHandling,
+        errorHandling
 
     }
 }
