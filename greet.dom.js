@@ -21,8 +21,9 @@ counterElement.innerHTML = greetings.countNames();
 
 greetButton.addEventListener('click', function () {
 
-  let greetedName = nameElement.value;
   let languageElem = document.querySelector('.radio-button:checked');
+  let currLang = languageElem.value;
+  let greetedName = nameElement.value;
   // alert(languageElem.value);
 
   // console.log(greetings.greet(greetedName));
@@ -30,16 +31,15 @@ greetButton.addEventListener('click', function () {
   if (languageElem) {
     if(greetedName) {
       greetings.setNames(greetedName)
-      let message = greetings.greet(greetedName, languageElem.value)
+      let message = greetings.greet(greetedName, currLang)
       console.log(message);
       displayElement.innerHTML = message;
       counterElement.innerHTML = greetings.countNames();
     }
  
-    errorElement.innerHTML = greetings.errorHandling();
+    errorElement.innerHTML = greetings.errorHandling(greetedName, currLang);
 
   }
-
   //store names into local storage , make sure that I convert my object that stores names into an string
 
   localStorage.setItem('nameEntered', JSON.stringify(greetings.namesReturned()));
