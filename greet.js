@@ -1,82 +1,84 @@
 // Create a function to set names of users and count them
 
-function Greetings(getItemNames) 
-{
+function Greetings(getItemNames) {
 
     var storedNames = getItemNames || {}
+    let regex = /^[a-zA-Z]{3,}$/
 
-
-    function setNames(namez)
-    {
-        if (storedNames[namez] === undefined) 
-        {
+    function setNames(namez) {
+        if (storedNames[namez] === undefined) {
             storedNames[namez] = 1;
         }
-        else 
-        {
+        else {
             storedNames[namez]++;
         }
 
     }
 
-    // Create a function to greet the name with the selected language
+    // Create a function to greet the name with the selected language and create a regular expression condition
 
-    function greet(name, language) 
-    {
+    function greet(name, language) {
         let greetMessage = "";
-        if (language !== null) 
-        {
-            if (language === "xhosa") 
-            {
-                return "Molo, " + name;
-            }
-            else if (language === "english") {
-                return "Hello, " + name;
-            }
-            else if (language === "venda") {
-                return "Nda, " + name;
-            }
+        let newName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase().trim();
+
+        if (newName === "" || !regex.test(newName)) {
+            return "Please Enter a valid Name"
         }
+        if (newName in storedNames) {
+            return "Already greeted enter a new Name";
+        }
+        else {
+            if (language !== null) {
+                if (language === "xhosa") {
+                    return "Molo, " + name;
+                }
+                else if (language === "english") {
+                    return "Hello, " + name;
+                }
+                else if (language === "venda") {
+                    return "Nda, " + name;
+                }
+            }
+
+        }
+
         return greetMessage;
     }
 
 
     // Get the length of values in the object but first convert it into a list/array
+
     function countNames() {
         let counter = Object.keys(storedNames);
         return counter.length;
     }
 
     // Create a function that returns the stored names
-    function namesReturned()
-    {
+    function namesReturned() {
         return storedNames
     }
 
     // handling erros when theres no names, nothing selected and when names contain numeric values
-    function errorHandling(names, languages)
-    {
-        // let invalidChar = "";
 
-         if (names  ==  "") 
-            {
-                return "Please enter your name";
-            }
-      
-        if (languages == null) 
-        {
-            return "Please select a language";
-        }
-        if (names == "" && languages == null) 
-        {
-            return "Please enter a name and select a language";
+    function errorHandling(names, languages) {
+
+        let invalidChar = "";
+
+        if (names == "" && languages == null) {
+            invalidChar = "Please enter a name and select a language";
         }
 
-        // return invalidChar;
-
-        if (names && languages === Number) {
-            return "Please do not enter any numeric values";
+        else if (names == "") {
+            invalidChar = "Please enter your name";
         }
+
+        else if (languages == null) {
+            invalidChar = "Please select a language";
+        }
+
+
+        return invalidChar;
+
 
     }
 
@@ -85,10 +87,12 @@ function Greetings(getItemNames)
         countNames,
         greet,
         namesReturned,
-        errorHandling
+        errorHandling,
 
     }
+
 }
+
 
 
 
