@@ -15,6 +15,7 @@ function Greetings(getItemNames) {
 
     }
 
+
     // Create a function to greet the name with the selected language and create a regular expression condition
 
     function greet(name, language) {
@@ -22,10 +23,11 @@ function Greetings(getItemNames) {
         let newName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase().trim();
 
         if (newName === "" || !regex.test(newName)) {
-            return "Please Enter a valid Name"
+            return "Please enter a valid name"
         }
         if (newName in storedNames) {
-            return "Already greeted enter a new Name";
+            return "Already greeted enter a new name";
+
         }
         else {
             if (language !== null) {
@@ -82,12 +84,15 @@ function Greetings(getItemNames) {
 
     }
 
+   
+
     return {
         setNames,
         countNames,
         greet,
         namesReturned,
         errorHandling,
+        
 
     }
 
