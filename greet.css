@@ -6,13 +6,15 @@
 	text-align: center;
 }
 .greetings {
-	border: 20em;
-	height: 50px;
-	line-height: 50px;
+	/* border: 0em; */
+	/* height: 50px; */
+	/* line-height: 50px; */
 	background-color: white;
 	margin-left: 250px;
 	margin-right: 250px;
 	align-items: center;
+	padding: 5px 15px 5px 15px;
+	
 }
 .display {
 	height: 50px;
@@ -28,22 +30,8 @@
 }
 
 .inputTxt {
-	border: 40px;
+	/* border: 40px; */
 }
 
 
- @media (max-width: 680px) {
-	 .section{
-		margin: 30px; 
-	 }
-	 .display{
-		margin-left: 70px;
-	 }
-	 .greetings{
-		 margin-left: 20%;	
-	 }
-	 .span {
-		align-items: center;
-	 }
-} 
 
